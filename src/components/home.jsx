@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import HeroComponent from './HeroComponent';
 import Services from './Services';
 import Trusted from './Trusted';
-import Footer from './Footer';
+
 
 const Home = () => {
   const data={
@@ -14,7 +14,7 @@ const Home = () => {
       <HeroComponent pageName={data}/>
       <Trusted/>
     <Services/>
-    <Footer/>
+    
     </>
   
     

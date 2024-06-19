@@ -10,6 +10,8 @@ import ErrorPage from './components/ErrorPage';
 import { GlobalStyle } from './Styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
+import Footer from './components/Footer';
+import { StoreProvider } from './appContext/ProductContext';
 function App() {
   const theme = {
     colors: {
@@ -19,7 +21,7 @@ function App() {
       black: "#212529",
       helper: "#8490ff",
       bg: "#F6F8FA",
-      footer_bg: "0a1435",
+      footer_bg: "#0a1435",
       btn: "rgb(98 84 243)",
       border: "rgba(98, 84, 243, 0.5)",
       hr: "#ffffff",
@@ -36,11 +38,13 @@ function App() {
   };
   return (
     <>
+    <StoreProvider>
     <ThemeProvider theme={theme}>
     <GlobalStyle/>
     <Header/>
     <Routes>
       <Route path="/" element={<Home/>}/>
+      <Route path="/home" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/products" element={<Products/>}/>
       <Route path="/contact" element={<Contact/>}/>
@@ -48,7 +52,9 @@ function App() {
       <Route path="/cart" element={<Cart/>}/>
       <Route path="*" element={<ErrorPage/>}/>
     </Routes>
+    <Footer/>
     </ThemeProvider>
+    </StoreProvider>
     </>
   );
 }
