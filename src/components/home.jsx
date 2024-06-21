@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import HeroComponent from './HeroComponent';
 import Services from './Services';
 import Trusted from './Trusted';
-
+import FeaturedProduct from './FeaturedProduct';
 
 const Home = () => {
   const data={
@@ -12,6 +12,7 @@ const Home = () => {
   return (
     <>
       <HeroComponent pageName={data}/>
+      <FeaturedProduct/>
       <Trusted/>
     <Services/>
     

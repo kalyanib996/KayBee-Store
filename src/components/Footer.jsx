@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <Container>
             <section className="contact-short">
-        <div classname="grid grid-two-column">
+        <div className="grid grid-two-column">
           <div>
             <h3>Need Help ? Connect with me !</h3>
           </div>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Trusted = () => {
   return (
-    <Container classname="brand-section">
+    <Container className="brand-section">
     <div className='container'>
         <h3> Trusted by 100+ companies</h3>
         <div className='brand-section-slider'> 

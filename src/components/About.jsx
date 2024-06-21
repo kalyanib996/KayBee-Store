@@ -4,13 +4,13 @@ import {useProductContext} from '../appContext/ProductContext'
 
 const About = () => {
   // const name= useContext(StoreContext); implemented customHook instead of useContext
-  const name= useProductContext();
+  // const name= useProductContext();
   const data={
     name:"Online Shopping App --by Kalyani Bedre"
   }
   return (
     <>
-    {name}
+    {/* {name} */}
     <HeroComponent pageName={data}/>
     </>
   )
