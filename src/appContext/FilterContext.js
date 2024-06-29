@@ -5,7 +5,8 @@ const FilterContext=createContext();
 const initialState={
     filter_products:[],
     all_products:[],
-    grid_view:true
+    grid_view:true,
+    
 }
 
 
@@ -19,13 +20,17 @@ const FilterContextProvider = ({ children }) => {
         return dispatch({type:"SET_GRIDVIEW"})
     }
 
+    const setListView=()=>{
+        return dispatch({type:"SET_LISTVIEW"})
+    }
+
     useEffect(()=>{
     dispatch({type:"LOAD_FILTER_PRODUCT_DATA",payload:products})
     },[products])  //products added as dependency to re update/add the data to the filter products
 
 
 return (
-    <FilterContext.Provider value={{...state}}>
+    <FilterContext.Provider value={{...state,setGridView,setListView}}>
         {children}
     </FilterContext.Provider>
 )

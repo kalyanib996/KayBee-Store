@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Product from '../Product';
 
 const GridView = ({products}) => {
-    console.log("products props inside gridview--",products)
+    // console.log("products props inside gridview--",products)
   return (
     <Container className='section'>
     <div className="container grid grid-three-column">
