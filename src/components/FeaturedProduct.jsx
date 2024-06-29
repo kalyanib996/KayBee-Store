@@ -4,7 +4,7 @@ import { useProductContext } from "../appContext/ProductContext";
 import Product from "./Product";
 const FeaturedProduct = () => {
   const { isLoading, featuredProducts } = useProductContext();
-  console.log("featured products---", featuredProducts);
+  // console.log("featured products---", featuredProducts);
   if (isLoading) {
     return <div>Featured Products Loading</div>;
   }

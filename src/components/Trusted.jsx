@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import sliderImg1 from "../assets/image-from-rawpixel-id-6483614-png.png"
 
 const Trusted = () => {
   return (
@@ -7,9 +8,17 @@ const Trusted = () => {
     <div className='container'>
         <h3> Trusted by 100+ companies</h3>
         <div className='brand-section-slider'> 
-            <div className='slide'>1st sliderimg</div>
-            <div className='slide'>2st sliderimg</div>
-            <div className='slide'>3st sliderimg</div>
+            <div className='slide'>
+              <img src={sliderImg1} alt="1st sliderimg"/>
+            </div>
+            <div className='slide'>
+              {/* 2st sliderimg */}
+              <img src={sliderImg1} alt="2st sliderimg"/>
+              </div>
+            <div className='slide'>
+              {/* 3st sliderimg */}
+              <img src={sliderImg1} alt="2st sliderimg"/>
+              </div>
 
 
         </div>
