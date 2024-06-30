@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { BsFillGridFill, BsList } from "react-icons/bs";
 import { useFilterContext } from "../../appContext/FilterContext";
 const Sort = () => {
-  const { filter_products, grid_view, setGridView, setListView } =
+  const { filter_products, grid_view, setGridView, setListView,setSortingValue } =
     useFilterContext();
 
   return (
@@ -23,10 +23,27 @@ const Sort = () => {
         </button>
       </div>
       <div className="products-data">
-        
-        <p> <span className="span-availabelProducts">{filter_products.length}</span> Products available</p>
+        <p>
+         
+          <span className="span-availabelProducts">
+            {filter_products.length}
+          </span>
+          Products available
+        </p>
       </div>
-      <div className="sort-selection">dropdown</div>
+      <div className="sort-selection">
+        <form action="#">
+          <label htmlFor="#sort">
+            <select name="sort" id="sort" className="sort-selection--style"
+            onClick={setSortingValue}>
+              <option value="lowest">Price:Low to High</option>
+              <option value="highest">Price:High to Low</option>
+              <option value="a-z">Sort by name:a-z</option>
+              <option value="z-a">Sort by name:z-a</option>
+            </select>
+          </label>
+        </form>
+      </div>
     </Conatiner>
   );
 };
@@ -34,9 +51,9 @@ const Conatiner = styled.section`
   display: flex;
   justify-content: space-between;
   margin-top: 5rem;
-  
-  .span-availabelProducts{
-  font-weight:800;
+
+  .span-availabelProducts {
+    font-weight: 800;
   }
 
   .sorting-list--grid {
