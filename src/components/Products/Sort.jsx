@@ -28,12 +28,12 @@ const Sort = () => {
           <span className="span-availabelProducts">
             {filter_products.length}
           </span>
-          Products available
+            &nbsp; Products available
         </p>
       </div>
       <div className="sort-selection">
         <form action="#">
-          <label htmlFor="#sort">
+          <label htmlFor="#sort"></label>
             <select name="sort" id="sort" className="sort-selection--style"
             onClick={setSortingValue}>
               <option value="lowest">Price:Low to High</option>
@@ -41,7 +41,7 @@ const Sort = () => {
               <option value="a-z">Sort by name:a-z</option>
               <option value="z-a">Sort by name:z-a</option>
             </select>
-          </label>
+          
         </form>
       </div>
     </Conatiner>

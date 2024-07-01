@@ -22,6 +22,52 @@ const filterReducer = (state, action) => {
     case "SET_SORT_VALUE": {
       return { ...state, sort_value: action.payload };
     }
+    // search bar text
+    case "UPDATE_FILTER_VALUES":{
+      const {name, value}=action.payload;
+      return{
+        ...state,
+        filters:{
+          ...state.filters,
+          [name]:value
+         
+        }
+      }
+    }
+    //setting products which match searchText
+    case "UPDATE_FILTER_PRODUCTS":{
+      // let {all_products}=state;
+        console.log("update filter value in REDUCER")
+    
+      let tempFilterPRoducts=[...state.all_products];
+      const {searchText,category,company}=state.filters;
+
+      if(searchText){
+      tempFilterPRoducts=tempFilterPRoducts.filter((ele)=>{
+        console.log("search text",searchText);
+        return ele.name.toLowerCase().includes(searchText)})
+      }
+      if(category.toLowerCase()!=="all"){
+        // console.log("if block of category")
+        tempFilterPRoducts=tempFilterPRoducts.filter((ele)=>{
+          return ele.category.toLowerCase()===category})
+      }
+      if(company.toLowerCase()!=="all"){
+        // console.log("if block of category")
+        tempFilterPRoducts=tempFilterPRoducts.filter((ele)=>{
+          return ele.company.toLowerCase()===company.toLowerCase()})
+      }
+      // if(category.toLowerCase()=="all"){
+      //   console.log("Inside if for category all", category.toLowerCase())
+      //   tempFilterPRoducts=[...state.all_products]
+      // }
+      // console.log("tempfilterprod--",tempFilterPRoducts)
+      return{
+        ...state,
+        filter_products:tempFilterPRoducts
+      }
+    }
+
     case "SORT_BASED_ON_SORT_VALUE": {
       let sortedData;
       const { filter_products } = state;
