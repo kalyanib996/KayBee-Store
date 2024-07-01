@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../../appContext/FilterContext";
+import { Button } from "../../Styles/Button";
 
 const FilterSection = () => {
   const {
     filters: { searchText, category,company },
     updateFilterValue,
     all_products,
+    setClearFilter
   } = useFilterContext();
 
   const getUniqueData = (data, property) => {
@@ -68,6 +70,11 @@ const FilterSection = () => {
           ))}
         </select>
       </div>
+
+
+    <div className="filter-clear">
+      <Button onClick={setClearFilter}>Clear Filter</Button>
+    </div>
     </Container>
   );
 };

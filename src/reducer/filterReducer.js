@@ -101,7 +101,17 @@ const filterReducer = (state, action) => {
         filter_products: sortedData,
       };
     }
-
+    case "CLEAR_PRODUCT_FILTER":{
+      const {filters}=state;
+    return{
+      ...state,
+      filters:{
+        ...filters,
+        searchText: "", category: "all", company: "all"
+      },
+      filter_products:[...state.all_products]
+    }
+    }
     default:
       return state;
   }
