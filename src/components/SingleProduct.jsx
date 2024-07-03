@@ -8,7 +8,7 @@ import PriceFormat from "../helpers/PriceFormat";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import { MdSecurity } from "react-icons/md";
 import Star from "./Star";
-import AddToCart from "./AddToCart";
+import AddToCart from "../components/Cart/AddToCart";
 
 const SingleProduct = () => {
   const { id } = useParams();
