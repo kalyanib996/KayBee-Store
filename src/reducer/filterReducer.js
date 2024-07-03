@@ -37,14 +37,14 @@ const filterReducer = (state, action) => {
     //setting products which match searchText
     case "UPDATE_FILTER_PRODUCTS":{
       // let {all_products}=state;
-        console.log("update filter value in REDUCER")
+        // console.log("update filter value in REDUCER")
     
       let tempFilterPRoducts=[...state.all_products];
       const {searchText,category,company}=state.filters;
 
       if(searchText){
       tempFilterPRoducts=tempFilterPRoducts.filter((ele)=>{
-        console.log("search text",searchText);
+        // console.log("search text",searchText);
         return ele.name.toLowerCase().includes(searchText)})
       }
       if(category.toLowerCase()!=="all"){

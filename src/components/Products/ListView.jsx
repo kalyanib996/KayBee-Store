@@ -4,7 +4,7 @@ import PriceFormat from "../../helpers/PriceFormat";
 import { NavLink } from "react-router-dom";
 import {Button} from "../../Styles/Button"
 const ListView = ({ products }) => {
-  console.log("list view data-----",products)
+  // console.log("list view data-----",products)
   return (
     <Container>
       <div className="section">

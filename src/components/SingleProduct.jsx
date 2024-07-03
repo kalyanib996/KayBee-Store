@@ -27,6 +27,8 @@ const SingleProduct = () => {
     reviews,
   } = singleProduct;
 
+
+  // console.log("Single Product---",singleProduct)
   useEffect(() => {
     fetchSingleProductData(`?_id=${id}`);
     
@@ -94,7 +96,7 @@ const SingleProduct = () => {
             </div>
 
             <div> 
-              <AddToCart/>
+              <AddToCart product={singleProduct} />
             </div>
           </div>
           </div>

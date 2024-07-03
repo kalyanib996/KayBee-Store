@@ -3,8 +3,16 @@ import styled from 'styled-components';
 import CartCountToggle from "./CartCountToggle";
 import {NavLink} from 'react-router-dom';
 import {Button} from "../Styles/Button";
-const AddToCart = () => {
+import { useCartContext } from '../appContext/cartContext';
+
+
+const AddToCart = ({product}) => {
     const [count, setCount]=useState(0);
+    const {addToCart} =useCartContext();
+
+    // console.log("add to cart",product)
+      const {_id, name, price}=product;
+
 
     const setIncrease=()=>{
       count < 5 ? setCount(count+1) : setCount(5)
@@ -20,7 +28,8 @@ const AddToCart = () => {
         setIncrease={setIncrease}
       />
 
-      <NavLink to="/cart">
+      <NavLink to="/cart" onClick={()=>addToCart(_id,name,price,count,product)}>
+      
         <Button className="btn">Add To Cart</Button>
       </NavLink>
 

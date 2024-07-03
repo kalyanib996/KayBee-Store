@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 const PageNavigation = ({ title }) => {
-  console.log(title);
+  // console.log(title);
   return (
     <Conatiner>
       <NavLink to="/">Home</NavLink>/{title}

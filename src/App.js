@@ -13,6 +13,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { StoreProvider } from "./appContext/ProductContext";
 import { FilterContextProvider } from "./appContext/FilterContext";
+import { CartProvider } from "./appContext/cartContext";
 function App() {
   const theme = {
     colors: {
@@ -39,11 +40,10 @@ function App() {
   };
   return (
     <>
-      <StoreProvider>
-        {" "}
-        {/* provides the product data  */}
-        <FilterContextProvider>
-          {/* provides the filter data for product page  */}
+      <StoreProvider> {/* provides the product data  */}
+        <FilterContextProvider>{/* provides the filter data for product page  */}
+          <CartProvider>
+
           <ThemeProvider theme={theme}>
             <GlobalStyle />
             <Header />
@@ -59,6 +59,7 @@ function App() {
             </Routes>
             <Footer />
           </ThemeProvider>
+          </CartProvider>
         </FilterContextProvider>
       </StoreProvider>
     </>
