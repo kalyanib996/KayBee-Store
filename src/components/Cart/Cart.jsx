@@ -1,14 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import CartItem from "./CartItem";
-import { useCartContext } from '../../appContext/cartContext';
+import { useCartContext } from "../../appContext/cartContext";
+import { Button } from "../../Styles/Button";
+import { NavLink } from "react-router-dom";
+import { CgSmileSad } from "react-icons/cg";
+import PriceFormat from "../../helpers/PriceFormat";
 
 const Cart = () => {
-  const {cart}=useCartContext();
-  console.log("Cart--",cart)
+  const { cart, clearCart,total_amount,shipping_fee } = useCartContext();
+  console.log("Cart--", cart);
+
   return (
     <Container>
-    <div className="container">
+      <div className="container">
         <div className="cart_heading grid grid-five-column">
           <p>Item</p>
           <p className="cart-hide">Price</p>
@@ -16,19 +21,48 @@ const Cart = () => {
           <p className="cart-hide">Subtotal</p>
           <p>Remove</p>
         </div>
-        <hr />   {/* horizontal line */}
-      
-      <div className="cart-item">
-   {cart ? cart.map((ele)=><CartItem  key={ele._id} {...ele}>
-    
-        </CartItem>):""}
+        <hr /> {/* horizontal line */}
+        <div className="cart-item">
+          {cart && cart.length > 0 ? (
+            cart.map((ele) => <CartItem key={ele._id} {...ele}></CartItem>)
+          ) : (
+            <h2>
+              Cart is Empty <CgSmileSad />
+            </h2>
+          )}
+        </div>
+        <hr />
+        <div className="cart-two-button">
+          <NavLink to="/products">
+            <Button>Continue Shopping</Button>
+          </NavLink>
+
+          <Button className="btn btn-clear" onClick={clearCart}>
+            Clear Cart{" "}
+          </Button>
+        </div>
+        {cart && cart.length > 0 ?
+        <div className="order-total--amount">
+          <div className="order-total--subdata">
+            <div>
+              <p>Subtotal:</p>
+              <p><PriceFormat price={total_amount}/></p>
+            </div>
+          <div>
+            <p>Shipping fee:</p>
+            <p><PriceFormat price={shipping_fee}/></p>
+          </div>
+
+          <div>
+          <p>Total:</p>
+          <p><PriceFormat price={total_amount+shipping_fee}/></p>
+          </div>
+          </div>
+        </div>:""}
       </div>
-
-
-    </div>
     </Container>
-  )
-}
+  );
+};
 const Container = styled.section`
   padding: 9rem 0;
 
@@ -204,4 +238,4 @@ const Container = styled.section`
   }
 `;
 
-export default Cart
+export default Cart;

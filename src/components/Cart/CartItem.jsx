@@ -7,7 +7,7 @@ import { useCartContext } from "../../appContext/cartContext";
 
 const CartItem = ({ _id,image, name, price, count }) => {
 
-    const {deleteProduct}= useCartContext();
+    const {deleteProduct,setProductIncrease, setProductDecrease}= useCartContext();
     const setIncrease = () => {
         // count < 5 ? setCount(count + 1) : setCount(5);
       };
@@ -37,8 +37,8 @@ const CartItem = ({ _id,image, name, price, count }) => {
      
       <CartCountToggle
         count={count}
-        setDecrease={setDecrease}
-        setIncrease={setIncrease}
+        setDecrease={()=>setProductDecrease(_id)}
+        setIncrease={()=>setProductIncrease(_id)}
       />
 
       {/* //Subtotal */}
