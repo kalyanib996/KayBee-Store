@@ -18,7 +18,7 @@ const HeroComponent = (props) => {
               Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
               sem. Nulla consequat massa quis enim.{" "}
             </p>
-            <NavLink>
+            <NavLink to="products">
               <Button>Shop Now!</Button>
             </NavLink>
           </div>

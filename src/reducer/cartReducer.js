@@ -84,13 +84,11 @@ const CartReducer = (state, action) => {
           };
         } else return ele;
       });
-
       return {
         ...state,
         cart: updatedCount,
       };
     }
-
     case "CLEAR_CART":
       {
         return {
@@ -98,25 +96,41 @@ const CartReducer = (state, action) => {
           cart: [],
         };
       }
-    
-    case "TOTAL_ITEMS_IN_CART":{
-      let totalItems=state.cart.reduce((acc,ele)=>acc+=ele.count,0)
-      // console.log("items in cart--", totalItems)
+    // case "TOTAL_ITEMS_IN_CART":{
+    //   let totalItems=state.cart.reduce((acc,ele)=>acc+=ele.count,0)
+    //   // console.log("items in cart--", totalItems)
+    // return{
+    //   ...state,
+    //   total_item:totalItems
+    // }
+    // }
+    // case "CALCULATE_CART_TOTAL":{
+    //   let cartTotal=state.cart.reduce((acc,element)=>acc+(element.price*element.count),0)
+    //   console.log("total price of cart",cartTotal)
+    //   return{
+    //     ...state,
+    //     total_amount:cartTotal
+    //   }
+    // }
 
-    return{
-      ...state,
-      total_item:totalItems
-    }
-    }
-    case "CALCULATE_CART_TOTAL":{
-      let cartTotal=state.cart.reduce((acc,element)=>acc+(element.price*element.count),0)
-      console.log("total price of cart",cartTotal)
-      return{
-        ...state,
-        total_amount:cartTotal
-      }
-    }
-      
+//combining reducers for calculating cart total  and total items in cart
+case"CALCULATE_CART_ITMES_AND_TOTAL":{
+  let {total_item, total_amount}= state.cart.reduce((acc,currEle)=>{
+    let {price,count}=currEle;
+    acc.total_item+=count;
+    acc.total_amount+=(price*count);
+    
+    return acc;
+  },{
+    total_item:0,
+    total_amount:0
+  })
+  return{
+    ...state,
+    total_item,
+    total_amount
+  }
+}
 
     default:
       break;

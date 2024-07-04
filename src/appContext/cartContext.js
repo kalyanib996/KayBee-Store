@@ -38,8 +38,9 @@ const CartProvider = ({ children }) => {
   //adding cart to localStorage
   useEffect(() => {
     // localStorage.setItem("ShoppingCart", JSON.stringify(state.cart));
-    dispatch({type:"TOTAL_ITEMS_IN_CART"})
-    dispatch({type:"CALCULATE_CART_TOTAL"})
+    // dispatch({type:"TOTAL_ITEMS_IN_CART"})
+    // dispatch({type:"CALCULATE_CART_TOTAL"})
+    dispatch({type:"CALCULATE_CART_ITMES_AND_TOTAL"})
     
   }, [state.cart]);
 
