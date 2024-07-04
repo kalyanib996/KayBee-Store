@@ -16,7 +16,7 @@ const AddToCart = ({ product }) => {
     count < 5 ? setCount(count + 1) : setCount(5);
   };
   const setDecrease = () => {
-    count > 1 ? setCount(count - 1) : setCount(1);
+    count > 1 ? setCount(count - 1) : setCount(0);
   };
   return (
     <Container>
@@ -28,11 +28,10 @@ const AddToCart = ({ product }) => {
 
       <NavLink
         to="/cart"
-        onClick={() => {if(count>0)addToCart(_id, name, price, count, product)
-          else{ console.log("Add products ")}
-        }}
+        onClick={() => addToCart(_id, name, price, count, product)}
       >
-        <Button className="btn">Add To Cart</Button>
+        {count>0 ? <Button className="btn">Add To Cart</Button> : <Button className="btn-disabled" disabled>Add To Cart</Button>}
+        
       </NavLink>
     </Container>
   );
@@ -42,6 +41,12 @@ const Container = styled.section`
   .btn {
     border-radius: 10 %;
   }
+  .btn-disabled{
+      border:none;
+      cursor: pointer;
+      background-color: grey;
+
+      }
 
   .amount-toggle {
     margin-top: 3rem;
@@ -56,7 +61,7 @@ const Container = styled.section`
       background-color: #fff;
       cursor: pointer;
     }
-
+      
     .amount-style {
       font-size: 2.4rem;
       color: ${({ theme }) => theme.colors.btn};
