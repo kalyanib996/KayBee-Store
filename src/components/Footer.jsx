@@ -22,11 +22,11 @@ const Footer = () => {
       <footer>
         <div className="container  grid grid-four-column">
           <div className="footer-about">
-            <h3>Kalyani Bedre--KayBee Store</h3>
-            <p>random text random text random text</p>
+            <h3>Kalyani Bedre--@KayBee-Store</h3>
+            <p>Ecommerce Practise Project created with MERN </p>
           </div>
           <div className="footer-social">
-            <h3>Follow Us</h3>
+            <h3>Follow Me</h3>
             <div className="footer-social--icons">
               <div>
                 <a
@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer-contact">
-            <h3>Contact</h3>
+            <h3>Email</h3>
             <h3>kalyanib996@gmail.com</h3>
           </div>
         </div>
