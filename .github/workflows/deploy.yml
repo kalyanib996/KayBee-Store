@@ -36,6 +36,7 @@ jobs:
         run: npm run build
         env:
           PUBLIC_URL: /KayBee-Store
+          CI: false
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
