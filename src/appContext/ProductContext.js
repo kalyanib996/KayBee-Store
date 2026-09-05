@@ -4,7 +4,7 @@ import ProductReducer from "../reducer/productReducer";
 
 const StoreContext = createContext();
 // const productAPI = "https://kaybee-store-productsapi-prod.up.railway.app/api/products";
-const productAPI = "https://productsapi-y30k.onrender.com/"
+const productAPI = "https://productsapi-y30k.onrender.com/api/products/";
 const initialState = {
   isLoading: false,
   isError: false,
