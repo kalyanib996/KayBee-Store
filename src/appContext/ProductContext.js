@@ -3,7 +3,8 @@ import axios from "axios";
 import ProductReducer from "../reducer/productReducer";
 
 const StoreContext = createContext();
-const productAPI = "https://kaybee-store-productsapi-prod.up.railway.app/api/products";
+// const productAPI = "https://kaybee-store-productsapi-prod.up.railway.app/api/products";
+const productAPI = "https://productsapi-y30k.onrender.com/"
 const initialState = {
   isLoading: false,
   isError: false,
